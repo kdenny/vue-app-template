@@ -2,19 +2,21 @@
   <div class="dashboard">
     <div v-if="isLoaded">
       <div style="font-weight: 200; font-size: 2.25rem; margin-top: 20px; height: 100px; display: inline-block;" class="publisher-header">
-        Publisher Vitals report for {{ currentPublisher.name }} - <a class="switcher-link" v-on:click="switchTimeframe()">{{ currentTimeframe.name }}</a>
-        <tuning_status_card :vitalsData="tuningData" v-on:submit="loadReport"></tuning_status_card>
+        Piano Scale CMS
+        <!--<tuning_status_card :vitalsData="tuningData" v-on:submit="loadReport"></tuning_status_card>-->
       </div>
       <dashboard-info-widgets v-if="!isSwitching" :current="averageHourPageviews"></dashboard-info-widgets>
       <div class="row" v-if="!isSwitching">
-        <div class="col-8">
-          <traffic_volume></traffic_volume>
-          <content_analytics></content_analytics>
+        <div class="col-9">
+          <libraries></libraries>
+          <tags></tags>
+          <!--<content_analytics></content_analytics>-->
         </div>
-        <div class="col-4">
-          <device_panel></device_panel>
-          <refferer_panel></refferer_panel>
-          <geo_panel></geo_panel>
+        <div class="col-3">
+          <metric_status></metric_status>
+          <!--<device_panel></device_panel>-->
+          <metric_views></metric_views>
+          <charts></charts>
         </div>
       </div>
     </div>
@@ -38,11 +40,11 @@
   import {ScalingSquaresSpinner} from 'epic-spinners'
   import BootstrapTable from '../tables/BootstrapTable.vue'
   import * as d3 from 'd3'
-  import TrafficVolume from './panels/TrafficVolume.vue'
-  import ContentAnalytics from './panels/ContentAnalytics.vue'
-  import Device from './panels/Device.vue'
-  import Referrer from './panels/Referrer.vue'
-  import Geography from './panels/Geography.vue'
+  import Libraries from './panels/Libraries.vue'
+  import Tags from './panels/Tags.vue'
+  import MetricStatus from './panels/MetricStatus.vue'
+  import MetricViews from './panels/MetricViews.vue'
+  import Charts from './panels/Charts.vue'
 
   export default {
     name: 'dashboard',
@@ -51,11 +53,11 @@
       tuning_status_card: TuningStatusCard,
       ScalingSquaresSpinner,
       BootstrapTable,
-      traffic_volume: TrafficVolume,
-      content_analytics: ContentAnalytics,
-      device_panel: Device,
-      refferer_panel: Referrer,
-      geo_panel: Geography
+      libraries: Libraries,
+      tags: Tags,
+      metric_status: MetricStatus,
+      metric_views: MetricViews,
+      charts: Charts
     },
     data () {
       return {
@@ -114,24 +116,24 @@
           dobj.id = 7
         }
         return dobj
-      },
-      averageHourPageviews () {
-        let ah = null
-        this.temporalData.dashboardData[0].data.forEach(d => {
-          if (d.hour === this.hourNow.id && d.day === this.dayNow.id) {
-            ah = d
-          }
-        })
-        let delta = Math.floor((this.viewCount - ah.pageviews) / ah.pageviews * 100) / 10
-        if (delta < 0) {
-          ah.direction = 'lower'
-          ah.delta = delta * -1
-        } else {
-          ah.direction = 'higher'
-          ah.delta = delta
-        }
-        return ah
       }
+//      averageHourPageviews () {
+//        let ah = null
+//        this.temporalData.dashboardData[0].data.forEach(d => {
+//          if (d.hour === this.hourNow.id && d.day === this.dayNow.id) {
+//            ah = d
+//          }
+//        })
+//        let delta = Math.floor((this.viewCount - ah.pageviews) / ah.pageviews * 100) / 10
+//        if (delta < 0) {
+//          ah.direction = 'lower'
+//          ah.delta = delta * -1
+//        } else {
+//          ah.direction = 'higher'
+//          ah.delta = delta
+//        }
+//        return ah
+//      }
     },
     mounted () {
       this.$store.dispatch('switchApp', {

@@ -1,30 +1,17 @@
 <template>
-  <div class="container geography-container" v-on:click="navTo('pageviews/geography')">
+  <div class="container traffic-container">
     <div class="section-header">
-      Locations
+      Libraries
     </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="subheader">
-          Top Countries
+    <div class="row" style="margin-top: 20px; min-height: 500px;">
+      <div class="col-3" v-for="library in libraries">
+        <div class="card" style="height: 150px; min-width: 180px; display: inline-block; margin-top: 20px;">
+          <div class="card-body" >
+            <div class="subheader" style="margin-bottom: 10px">
+              Views by minute, past hour
+            </div>
+          </div>
         </div>
-        <bootstrap-table
-          style="width: 85%"
-          :tableFields="dashboardTables.countryFields"
-          :tableRows="topCountries"
-          :hideButtons="true"
-        ></bootstrap-table>
-      </div>
-      <div class="col-6">
-        <div class="subheader">
-          Top Cities
-        </div>
-        <bootstrap-table
-          style="width: 85%"
-          :tableFields="dashboardTables.cityFields"
-          :tableRows="topCities"
-          :hideButtons="true"
-        ></bootstrap-table>
       </div>
     </div>
   </div>
@@ -32,29 +19,21 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import BootstrapTable from '../../tables/BootstrapTable.vue'
 
   export default {
-    name: 'geography-panel',
+    name: 'dashboard',
     components: {
-      BootstrapTable
+//      line_chart: LineChart,
+//      time_heatmap: TimeHeatmap
     },
     data () {
       return {
-      }
-    },
-    watch: {
-      currentPublisher () {
-        console.log('Publisher changed')
-        this.loadTimeData()
+        libraries: ['Conversions', 'Adblocking', 'Temporal Rythym', 'Another One']
       }
     },
     computed: {
       ...mapGetters({
-        'colors': 'colors',
-        'topCountries': 'topCountries',
-        'topCities': 'topCities',
-        'dashboardTables': 'dashboardTables'
+        'colors': 'colors'
       })
     },
     mounted () {
@@ -65,9 +44,6 @@
 //      this.loadDashboardData()
     },
     methods: {
-      navTo (loc) {
-        this.$router.push({ path: loc })
-      }
 //      ...mapActions([
 //        'closeMenu',
 //        'toggleSidebar',
@@ -75,7 +51,9 @@
 //        'loadTuningData',
 //        'loadDashboardData'
 //      ]),
-//
+      navTo (loc) {
+        this.$router.push({ path: loc })
+      }
     }
   }
 </script>

@@ -1,26 +1,41 @@
 <template>
   <div class="container device-container" v-on:click="navTo('pageviews/user-agent')">
     <div class="section-header">
-      Device Breakdown
+      12 views created for 4 metrics
+      <button class="btn btn-primary btn-small" style="margin-left: 15px">Add New +</button>
     </div>
-    <scale_chart :width="scaleChart.width" :height="scaleChart.height" :margin="scaleChart.margins" :chartData="deviceData" :dataType="'realtime'"></scale_chart>
-    <bootstrap-table
-      style="width: 65%; margin-top: -30px; margin-bottom: 40px; margin-left: 15%;"
-      :tableFields="dashboardTables.device"
-      :tableRows="deviceData"
-    ></bootstrap-table>
+    <div class="row" style="height: 200px; margin-top: 40px;">
+      <div class="col-4">
+        <span style-="display: inline-block">Complete Metrics</span>
+        <span style-="display: inline-block">2</span>
+      </div>
+      <div class="col-4">
+        <span style-="display: inline-block">Pending Metrics</span>
+        <span style-="display: inline-block">2</span>
+      </div>
+      <div class="col-4">
+        <span style-="display: inline-block">Incomplete Metrics</span>
+        <span style-="display: inline-block">2</span>
+      </div>
+    </div>
+    <!--<scale_chart :width="scaleChart.width" :height="scaleChart.height" :margin="scaleChart.margins" :chartData="deviceData" :dataType="'realtime'"></scale_chart>-->
+    <!--<bootstrap-table-->
+      <!--style="width: 65%; margin-top: -30px; margin-bottom: 40px; margin-left: 15%;"-->
+      <!--:tableFields="dashboardTables.device"-->
+      <!--:tableRows="deviceData"-->
+    <!--&gt;</bootstrap-table>-->
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import ScaleChart from './viz/ScaleChart.vue'
+//  import ScaleChart from './viz/ScaleChart.vue'
   import BootstrapTable from '../../tables/BootstrapTable.vue'
 
   export default {
     name: 'device-panel',
     components: {
-      scale_chart: ScaleChart,
+//      scale_chart: ScaleChart,
       BootstrapTable
     },
     computed: {

@@ -1,44 +1,37 @@
 <template>
-  <div class="container geography-container" v-on:click="navTo('pageviews/referrer')">
+  <div class="container traffic-container">
     <div class="section-header">
-      Top Referrers
+      Tags
     </div>
-    <div class="row">
-      <bootstrap-table
-        style="width: 65%; margin-bottom: 40px; margin-left: 15%;"
-        :tableFields="dashboardTables.referrerFields"
-        :tableRows="topReferrers"
-        :hideButtons="true"
-      ></bootstrap-table>
+    <div class="row" style="margin-top: 20px; min-height: 200px;">
+      <div class="card tag-card" style="height: 50px; max-width: 180px; display: inline-block; margin: 5px 20px; border: 1px solid black; border-radius: 10px;" v-for="tag in tags">
+        <div class="card-body" style="padding: 3px 10px;">
+          <div class="subheader">
+            {{ tag }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import BootstrapTable from '../../tables/BootstrapTable.vue'
 
   export default {
     name: 'dashboard',
     components: {
-      BootstrapTable
+//      line_chart: LineChart,
+//      time_heatmap: TimeHeatmap
     },
     data () {
       return {
-        showLive: true,
-        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-      }
-    },
-    watch: {
-      currentPublisher () {
-        console.log('Publisher changed')
-        this.loadTimeData()
+        tags: ['Conversions', 'Adblocking', 'Temporal Rythym', 'Another One', 'device']
       }
     },
     computed: {
       ...mapGetters({
-        'topReferrers': 'topReferrers',
-        'dashboardTables': 'dashboardTables'
+        'colors': 'colors'
       })
     },
     mounted () {
@@ -49,9 +42,6 @@
 //      this.loadDashboardData()
     },
     methods: {
-      navTo (loc) {
-        this.$router.push({ path: loc })
-      }
 //      ...mapActions([
 //        'closeMenu',
 //        'toggleSidebar',
@@ -59,7 +49,9 @@
 //        'loadTuningData',
 //        'loadDashboardData'
 //      ]),
-//
+      navTo (loc) {
+        this.$router.push({ path: loc })
+      }
     }
   }
 </script>
@@ -76,8 +68,7 @@
     display: block;
   }
   .subheader {
-    font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     margin-bottom: 5px;
     text-align: center;
   }
