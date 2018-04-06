@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+//Util classes
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.widget-viewport-height {
+  height: $widget-viewport-height;
+}
+
+.none {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]) {
+  color: $white;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover {
+  color: $white;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):focus {
+  color: $white;
+  cursor: pointer;
+}
+
+progress {
+  background-color: rgba(0,0,0,0.2);
+  border: 0;
+  height: 0.25em;
+  width: 160px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(0,0,0,0.2);
+}
+
+progress::-webkit-progress-value {
+  background-color: $piano-navy;
+}
+
+progress::-moz-progress-bar {
+  background-color: $piano-navy;
+}
