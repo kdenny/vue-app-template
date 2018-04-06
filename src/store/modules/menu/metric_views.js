@@ -16,8 +16,7 @@ export default {
       path: '/metric-views',
       component: lazyLoading('dashboard/Dashboard'),
       meta: {
-        title: 'Views List',
-        default: true
+        title: 'Views List'
       }
     },
     {

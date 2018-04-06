@@ -19,58 +19,58 @@
 
       <div class="offset-lg-7"></div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <div v-if="loaded" style="float: left; margin-right: 20px;">
-          <progress class="progress is-large is-info" v-bind:value="timerCount" max="30"></progress>
-        </div>
-        <a style="width: 80px;opacity: 0.4" class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
-          <!--<span class="i-nav-notification notify"></span>-->
-          <span>{{ currentTimeframe.name }}</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-menu-content">
-            <a class="dropdown-item" href="#" v-for="tf in timeframes">
-              <span class="ellipsis" v-on:click="selectTimeframe(tf)">{{ tf.name }}</span>
-            </a>
-          </div>
-        </div>
+        <!--<div v-if="loaded" style="float: left; margin-right: 20px;">-->
+          <!--<progress class="progress is-large is-info" v-bind:value="timerCount" max="30"></progress>-->
+        <!--</div>-->
+        <!--<a style="width: 80px;opacity: 0.4" class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">-->
+          <!--&lt;!&ndash;<span class="i-nav-notification notify"></span>&ndash;&gt;-->
+          <!--<span>{{ currentTimeframe.name }}</span>-->
+        <!--</a>-->
+        <!--<div class="dropdown-menu">-->
+          <!--<div class="dropdown-menu-content">-->
+            <!--<a class="dropdown-item" href="#" v-for="tf in timeframes">-->
+              <!--<span class="ellipsis" v-on:click="selectTimeframe(tf)">{{ tf.name }}</span>-->
+            <!--</a>-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
-      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu" v-if="currentFilter === 'none'">
-          No Current Filter
-        </a>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu" v-if="currentFilter !== 'none'">
-          Filtering by {{ currentFilter.filter }}
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-menu-content">
-            <a class="dropdown-item" href="#">
-              <span class="ellipsis" v-on:click="paidFilter">Filter Paid</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <span class="ellipsis" v-on:click="adblockFilter">Filter Adblock</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <span class="ellipsis" v-on:click="loggedInFilter">Filter Logged In</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <span class="ellipsis" v-on:click="resetFilter">Clear Filters</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <!--<div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>-->
+        <!--<a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu" v-if="currentFilter === 'none'">-->
+          <!--No Current Filter-->
+        <!--</a>-->
+        <!--<a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu" v-if="currentFilter !== 'none'">-->
+          <!--Filtering by {{ currentFilter.filter }}-->
+        <!--</a>-->
+        <!--<div class="dropdown-menu">-->
+          <!--<div class="dropdown-menu-content">-->
+            <!--<a class="dropdown-item" href="#">-->
+              <!--<span class="ellipsis" v-on:click="paidFilter">Filter Paid</span>-->
+            <!--</a>-->
+            <!--<a class="dropdown-item" href="#">-->
+              <!--<span class="ellipsis" v-on:click="adblockFilter">Filter Adblock</span>-->
+            <!--</a>-->
+            <!--<a class="dropdown-item" href="#">-->
+              <!--<span class="ellipsis" v-on:click="loggedInFilter">Filter Logged In</span>-->
+            <!--</a>-->
+            <!--<a class="dropdown-item" href="#">-->
+              <!--<span class="ellipsis" v-on:click="resetFilter">Clear Filters</span>-->
+            <!--</a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
 
-      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
-          <span>{{ currentPublisher.name }}</span>
-        </a>
-        <div class="dropdown-menu last">
-          <div class="dropdown-menu-content" style="max-height: 500px; overflow-x:hidden; overflow-y: scroll;">
-            <div class="dropdown-item plain-link-item" v-for="pub in sortedPublishers">
-              <a class="plain-link" href="#" v-on:click="selectPub(pub)">{{ pub.name }}</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!--<div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>-->
+        <!--<a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">-->
+          <!--<span>{{ currentPublisher.name }}</span>-->
+        <!--</a>-->
+        <!--<div class="dropdown-menu last">-->
+          <!--<div class="dropdown-menu-content" style="max-height: 500px; overflow-x:hidden; overflow-y: scroll;">-->
+            <!--<div class="dropdown-item plain-link-item" v-for="pub in sortedPublishers">-->
+              <!--<a class="plain-link" href="#" v-on:click="selectPub(pub)">{{ pub.name }}</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
     <modal ref="languageModal"
      v-bind:small="true" :okClass="'none'" :cancelClass="'none'">

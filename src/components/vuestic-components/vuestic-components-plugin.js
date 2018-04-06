@@ -1,5 +1,4 @@
 import Alert from 'src/components/vuestic-components/vuestic-alert/VuesticAlert.vue'
-import Chart from 'src/components/vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from 'src/components/vuestic-components/vuestic-chat/VuesticChat.vue'
 import DataTable from 'src/components/vuestic-components/vuestic-datatable/VuesticDataTable.vue'
 import Feed from 'src/components/vuestic-components/vuestic-feed/VuesticFeed.vue'
@@ -19,7 +18,6 @@ import Wizard from 'src/components/vuestic-components/vuestic-wizard/VuesticWiza
 const VuesticComponentsPlugin = {
   install (Vue, options) {
     Vue.component(Alert.name, Alert)
-    Vue.component(Chart.name, Chart)
     Vue.component(Chat.name, Chat)
     Vue.component(DataTable.name, DataTable)
     Vue.component(Feed.name, Feed)

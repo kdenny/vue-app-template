@@ -36,7 +36,6 @@
 <script>
   import DashboardInfoWidgets from './DashboardInfoWidgets'
   import { mapActions, mapGetters } from 'vuex'
-  import TuningStatusCard from '../vitals-dashboard/tuning/TuningStatusCard.vue'
   import {ScalingSquaresSpinner} from 'epic-spinners'
   import BootstrapTable from '../tables/BootstrapTable.vue'
   import * as d3 from 'd3'
@@ -50,7 +49,6 @@
     name: 'dashboard',
     components: {
       DashboardInfoWidgets,
-      tuning_status_card: TuningStatusCard,
       ScalingSquaresSpinner,
       BootstrapTable,
       libraries: Libraries,

@@ -1,5 +1,5 @@
 import * as types from '../../mutation-types'
-import pageviews2 from './pageviews_2'
+import library from './library'
 import metrics from './metrics'
 import metricViews from './metric_views'
 import charts from './charts'
@@ -8,7 +8,7 @@ import charts from './charts'
 
 const state = {
   items: [
-    pageviews2,
+    library,
     metrics,
     metricViews,
     charts

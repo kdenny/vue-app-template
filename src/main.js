@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
-import VeeValidate from 'vee-validate'
+// import VeeValidate from 'vee-validate'
 import App from './App'
 import store from './store'
 import router from './router'
@@ -19,7 +19,7 @@ Vue.use(BootstrapVue)
 Vue.use(VueResource)
 
 // NOTE: workaround for VeeValidate + vuetable-2
-Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
+// Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
 // Vue.use(VueNativeSock, 'ws://172.31.22.33:9105/wsApp/o19WonOrHQ', { store: store, format: 'json' })
 
 sync(store, router)

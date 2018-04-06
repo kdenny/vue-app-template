@@ -16,8 +16,7 @@ export default {
       path: '/metric-status',
       component: lazyLoading('dashboard/Dashboard'),
       meta: {
-        title: 'Metric Status',
-        default: true
+        title: 'Metric Status'
       }
     },
     {

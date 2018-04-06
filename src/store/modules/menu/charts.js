@@ -16,8 +16,7 @@ export default {
       path: '/charts',
       component: lazyLoading('dashboard/Dashboard'),
       meta: {
-        title: 'Current Charts',
-        default: true
+        title: 'Current Charts'
       }
     },
     {
@@ -25,8 +24,7 @@ export default {
       path: '/charts/new',
       component: lazyLoading('dashboard/Dashboard'),
       meta: {
-        title: 'Define New Chart',
-        default: true
+        title: 'Define New Chart'
       }
     }
   ]

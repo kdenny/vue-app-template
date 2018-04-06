@@ -38,7 +38,6 @@
 </template>
 
 <script>
-  import VuesticChart from '../../vuestic-components/vuestic-chart/VuesticChart.vue'
   import DataTable from '../../vuestic-components/vuestic-datatable/VuesticDataTable.vue'
   import Vue from 'vue'
   import BadgeColumn from '../../tables/BadgeColumn.vue'
@@ -51,7 +50,6 @@
     name: 'content-tab',
     components: {
       DataTable,
-      VuesticChart,
       BootstrapTable
     },
     data () {
