@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <div v-if="isLoaded">
+    <div v-if="loaded">
       <div style="font-weight: 200; font-size: 2.25rem; margin-top: 20px; height: 100px; display: inline-block;" class="publisher-header">
         Piano Scale CMS
         <!--<tuning_status_card :vitalsData="tuningData" v-on:submit="loadReport"></tuning_status_card>-->
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div v-if="!isLoaded || isSwitching" style="margin: 50px 500px">
+    <div v-if="!loaded" style="margin: 50px 500px">
       <div class="row">
         <span style="display: inline-block; font-size: 18px; margin-right: 45px;">Loading...</span>
         <scaling-squares-spinner
@@ -61,7 +61,8 @@
     },
     data () {
       return {
-        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        loaded: true
       }
     },
     watch: {

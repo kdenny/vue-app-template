@@ -45,7 +45,7 @@ const state = {
       '#bbc49a']
   },
   activeData: 'websocket',
-  isLoading: true
+  isLoading: false
 }
 
 const mutations = {

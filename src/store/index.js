@@ -3,7 +3,8 @@ import Vuex from 'vuex'
 import VuexI18n from 'vuex-i18n' // load vuex i18n module
 
 import app from './modules/app'
-import websocket from './modules/websocket/websocket'
+import api from './modules/apiData/api'
+import ui from './modules/uiState/ui'
 // import api from './modules/bigqueryAPI/api'
 import menu from './modules/menu'
 import viz from './modules/viz'
@@ -16,7 +17,8 @@ const store = new Vuex.Store({
   getters,
   modules: {
     app,
-    websocket,
+    api,
+    ui,
     menu,
     viz
   },
